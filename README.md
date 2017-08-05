@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 必要なOSパッケージインストール
 
-Things you may want to cover:
+    $ curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
+    $ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+    $ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+    $ sudo apt-get update -qq
+    $ sudo apt-get install -y build-essential libmysqlclient-dev nodejs yarn
 
-* Ruby version
+Docker & Docker Compose
 
-* System dependencies
+## gems & node modules
 
-* Configuration
+    $ bundle install --jobs 4 --retry 5 --path vendor/bundle
+    $ yarn
 
-* Database creation
+## Start
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    $ docker-compose up -d
+    $ bundle exec rails s
